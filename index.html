@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio d'Ahaddou Heymad - Développeur web et applications">
+    <meta name="keywords" content="développeur, portfolio, web, applications, Java, Python, SQL">
+    <title>Portfolio d'Ahaddou Heymad - Développeur</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/pexels-photo-577585.PNG" type="image/x-icon">
+</head>
+
+<body>
+    <main>
+        <aside class="sidebar" data-sidebar role="complementary" aria-label="Informations personnelles">
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="img/pexels-photo-577585.PNG" alt="Photo de profil d'Ahaddou Heymad" width="80">
+                </figure>
+
+                <div class="info-content">
+                    <h1 class="name" title="Richard Hanrick">Ahaddou Heymad</h1>
+                    <p class="title">Developer</p>
+                </div>
+
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
+
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+
+                            <a href="mailto:heymad.ahaddou2804@gmail.com"
+                                class="contact-link">heymad.ahaddou2804@gmail.com</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Phone</p>
+
+                            <a href="tel:+12133522795" class="contact-link">+33 06.98.62.92.41 </a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Birthday</p>
+
+                            <time datetime="1982-06-23">April 28, 2003</time>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
+
+                            <address>25 rue de la blanchere, 44150 Vair-sur-Loire</address>
+                        </div>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+
+                <ul class="social-list">
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-facebook"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-twitter"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="navbar" role="navigation" aria-label="Navigation principale">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><button class="navbar-link active" data-nav-link
+                            aria-current="page">About</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+                </ul>
+            </nav>
+
+            <article class="about active" data-page="about" role="tabpanel" aria-labelledby="about-tab">
+                <header>
+                    <h2 class="h2 article-title">A propos de moi</h2>
+                </header>
+
+                <section class="about-text">
+                    <p>Bonjour, je m'appelle Ahaddou Heymad, j'ai 22 ans et je suis étudiant en première année de BTS
+                        SIO (Services Informatiques aux Organisations).</p>
+                    <p>Mes centres d'intérêt incluent les jeux vidéo, le sport et la bande dessinée.</p>
+                    <p>J'ai obtenu un baccalauréat en Sciences et Technologies de l'Industrie et du Développement
+                        Durable (STI2D), spécialité Systèmes d'Information et Numérique (SIN), au Lycée Eugène Livet à
+                        Nantes.</p>
+                    <p>Par la suite, j'ai décidé de poursuivre mes études en BUT Informatique pour apprendre le
+                        développement informatique et l'analyse de données. Cependant, n'y trouvant pas satisfaction,
+                        j'ai choisi de me réorienter en BTS SIO.</p>
+                </section>
+                <section class="service">
+                    <h3 class="h3 service-title">Hobbies</h3>
+
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/ZqgqrqzG/icon-dev.png" alt="icon" width="40">
+                            </div>
+
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">coding</h4>
+                                <p class="service-item-text">J'aime coder, que ce soit pour créer des applications, des
+                                    sites web ou des jeux. Je trouve cela très gratifiant de voir mes idées prendre
+                                    forme grâce à la programmation.</p>
+                            </div>
+                        </li>
+
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="" alt="icon" width="40">
+                            </div>
+
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Video game</h4>
+                                <p class="service-item-text">
+                                    J'aime bien les jeux vidéo, en particulier les jeux d'action. Je passe beaucoup de
+                                    temps à jouer et à découvrir de nouveaux jeux.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/xjLdzYxZ/icon-app.png" alt="icon" width="40">
+                            </div>
+
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Sport</h4>
+                                <p class="service-item-text">
+                                    J'aime le sport, en particulier le football et le basketball. Je pratique
+                                    régulièrement ces sports pour rester en forme et m'amuser.</p>
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/0NL8zHpx/icon-photo.png" alt="icon" width="40">
+                            </div>
+
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">BD</h4>
+                                <p class="service-item-text">J'aime lire des bandes dessinées, en particulier les séries
+                                    de science-fiction. Je trouve que les illustrations ajoutent une dimension
+                                    supplémentaire à l'histoire.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="modal-container " data-modal-container>
+                    <div class="overlay " data-overlay></div>
+                    <button class="modal-close-btn" data-modal-close-btn><ion-icon
+                            name="close-outline"></ion-icon></button>
+                </div>
+            </article>
+
+            <article class="resume " data-page="resume">
+                <header>
+                    <h2 class="h2 article-title">Resume</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Education</h3>
+                    </div>
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">BTS SIO (service informatique aux Organisations) - La
+                                Joliverie, Nantes</h4>
+                            <span>2024 - 2026</span>
+                            <p class="timeline-text">Actuellement étudiant à La Joliverie, où je poursuis un BTS SIO
+                                (Services Informatiques aux Organisations).
+                                Mon parcours académique m'a permis d'acquérir des compétences solides en développement
+                                web, en gestion de bases de données et en administration système.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">BUT informatique - IUT de Gradignan, Bordeaux</h4>
+                            <span>2022 - 2024</span>
+                            <p class="timeline-text">
+                                J'ai passé deux ans en BUT Informatique à l'IUT de Gradignan, Bordeaux, où j'ai
+                                approfondi mes connaissances en développement logiciel, en gestion de projets
+                                informatiques et en analyse de données.
+                                Ayant des difficultés dans ce cursus, j'ai décidé de me réorienter vers un BTS SIO pour
+                                mieux correspondre à mes aspirations professionnelles.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Bac STI2D (sciences et technologies de l'industrie et du
+                                développement durable) - Livet, Nantes</h4>
+                            <span>2020 - 2022</span>
+                            <p class="timeline-text"> J'ai eu mon Bac STI2D option SIN (Systèmes d'Information et
+                                Numérique) au lycée Livet à Nantes,
+                                cette formation m'a permis d'acquérir des compétences solides en informatique et en
+                                développement durable qui m'ont orienté vers des études supérieures dans le domaine des
+                                technologies de l'information.</p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Experience</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Stage delia</h4>
+                            <span>Mai 2025 - Juin 2025 </span>
+                            <p class="timeline-text">
+                                Dans le cadre de mon BTS, j'ai effectué un stage d'un mois et demis chez Delia, une
+                                entreprise spécialisée dans le développement de solutions informatiques.
+                                J'ai eu l'opportunité de travailler sur des projets concrets, d'appliquer mes
+                                compétences en programmation et de collaborer avec une équipe professionnelle.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Projet TALI java</h4>
+                            <span>Avril 2024</span>
+                            <p class="timeline-text">Dans le cadre de ce projet en binome j'ai développé une application
+                                de gestion de tâches en Java, en utilisant le framework Spring Boot. Ce projet m'a
+                                permis de renforcer mes compétences en développement backend et en gestion de projet.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Projet Fin d'année BUT</h4>
+                            <span>Juin 2024</span>
+                            <p class="timeline-text">Lors de mon projet de fin d'année en BUT, j'ai pu travailler en
+                                équipe sur une solution permettant aux entreprises de consulter les dépenses
+                                énergétiques des pays du monde entier. La solution prenant en compte les différentes
+                                sources d'énergie et leur impact environnemental.
+                                Le tout visualisable via un .exe en c#. Au niveau des langages utilisés, nous avons
+                                utilisé du Python pour la partie backend, ainsi que SQL pour la gestion de la base de
+                                données.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Projet Towa</h4>
+                            <span>Décembre 2023-Janvier 2024</span>
+                            <p class="timeline-text">TOWA un projet de SAE(Situation d'Apprentissage et d'évaluation)
+                                fait en java,Towa est un jeux de plateau aux tours par tours,ce projet etait divisé en
+                                deux phase, la premiere consistait a coder les regles et atout du jeux via un systeme de
+                                niveaux(la difficultés était proportionnelle au niveau).
+                                La deuxieme phase etait axée sur la création d'une ia a qui il fallait ajoutés les
+                                actions a jouées.</p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="skill">
+                    <h3 class="h3 skills-title">My Skills</h3>
+
+                    <ul class="skills-list content-card">
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">Python</h5>
+                                <data value="90">90%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </li>
+
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">JAVA</h5>
+                                <data value="70">70%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">html,PHP</h5>
+                                <data value="70">70%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">SQL</h5>
+                                <data value="90">90%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">JavaScript, TypeScript, Node.js , Nuxt</h5>
+                                <data value="60">60%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 60%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="portfolio " data-page="portfolio">
+                <header>
+                    <h2 class="h2 article-title">Portfolio</h2>
+                </header>
+
+                <section class="projects">
+                    <ul class="filter-list">
+                        <li class="filter-item"><button class="active" data-filter-btn>ALL</button></li>
+                        <li class="filter-item"><button data-filter-btn>JAVA</button></li>
+                        <li class="filter-item"><button data-filter-btn>Python</button></li>
+                        <li class="filter-item"><button data-filter-btn>SQL</button></li>
+                        <li class="filter-item"><button data-filter-btn>Web Development</button></li>
+                        <li class="filter-item"><button data-filter-btn>Autres</button></li>
+                    </ul>
+
+                    <div class="filter-select-box">
+                        <button class="filter-select " data-select>
+                            <div class="select-value" data-select-value>Select Category</div>
+
+                            <div class="select-icon">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                        </button>
+
+                        <ul class="select-list">
+                            <li class="select-item"><button data-select-item>All</button></li>
+                            <li class="select-item"><button data-select-item>JAVA</button></li>
+                            <li class="select-item"><button data-select-item>Python</button></li>
+                            <li class="select-item"><button data-select-item>SQL</button></li>
+                            <li class="select-item"><button data-select-item>Web Development</button></li>
+                            <li class="select-item"><button data-select-item>Autres</button></li>
+                        </ul>
+                    </div>
+
+                    <ul class="project-list">
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="retours_experience/Biosphere 7.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/Biosphere7.png" alt="finance" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Biosphere 7</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="retours_experience/Comparaison_d’approches_algorithmiques.pdf">
+                            <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://i.postimg.cc/bNrcM2Wt/project-2.png" alt="orizon" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Towa</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="retours_experience/Odomo.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="img/station-meteo-connectee-avec-capteur-exterieur-ecran-couleur-et-tendances-a-5-jours-ref_NX6170_13.PNG"
+                                        alt="fundo" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">ODOMO</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="SQL">
+                            <a href="retours_experience/Création_d'une_base_de_donnée.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/1627286560-sql-databases.avif" alt="brawlhalla" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Gestion base de données</h3>
+                                <p class="project-category">SQL</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="Python">
+                            <a href="retours_experience/retex_projet_python (1).pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="img/image_python.jpg" alt="dsm." loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Projet Python</h3>
+                                <p class="project-category">Python</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="Autres">
+                            <a href="retours_experience/SAE Gestion des Organisations.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="img/gestion-de-projets.png" alt="metaspark" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">SAE Gestion des Organisations</h3>
+                                <p class="project-category">Autres</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="retours_experience/retex_projet_java_thali.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3S9FqOWEjqGZPQ98L55jzxu9OXbJqwXx_Gw&s" alt="summary" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Projet thali java</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="Autres">
+                            <a href="retours_experience/SAE_1.03_InfoSystèmes.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/Installation d'un poste pour le développement.png" alt="task manager"
+                                        loading="lazy">
+                                </figure>
+                                <h3 class="project-title">SAE installation de poste</h3>
+                                <p class="project-category">Autres</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="retours_experience/retex_projet_corpany.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://spectrum365.io/wp-content/uploads/2024/06/25225760_7063763-scaled-1.jpg" alt="task manager" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Projet Intranet</h3>
+                                <p class="project-category">Web</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="retours_experience/Ahaddou_Heymad_1SLAM_2025_Stage_1_Rapport.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://cdn.prod.website-files.com/5dc008cb9bf13ecb81574ae7/5ff426aaba8a87f09e7e5f6e_logo_DT_6.png" alt="arrival" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Stage chez Delia</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="blog " data-page="blog">
+                <header>
+                    <h2 class="h2 article-title">Blog</h2>
+                </header>
+                <section class="blog-posts">
+                    <ul class="blog-posts-list">
+                        <li class="blog-post-item">
+                            <a href="https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/API"
+                                target="_blank">
+                                <figure class="blog-banner-box">
+                                    <img src="https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/API/javaScript_exercised_in_console.jpg"
+                                        alt="API WebExtensions MDN" loading="lazy">
+                                </figure>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">JavaScript / API</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2024-06-03">Juin 3, 2024</time>
+                                    </div>
+                                    <h3 class="h3 blog-item-title">Découvrir les API WebExtensions avec JavaScript</h3>
+                                    <p class="blog-text">
+                                        Cet article de la MDN présente en détail les API WebExtensions, qui permettent
+                                        de créer des extensions pour les navigateurs modernes comme Firefox et Chrome en
+                                        utilisant JavaScript. Vous y trouverez des exemples pratiques, la documentation
+                                        des différentes API (onglets, notifications, stockage, etc.) et des conseils
+                                        pour démarrer le développement d'extensions web. Un excellent point de départ
+                                        pour tout développeur souhaitant enrichir l'expérience utilisateur sur le web !
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="blog-post-item">
+                            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide"
+                                target="_blank">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.ytimg.com/vi/OXH0tC6ZsPU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCI2KJ7331Qh0JEPsZ_cy4wYhvR-g"
+                                        alt="Guide JavaScript MDN" loading="lazy">
+                                </figure>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">JavaScript</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2024-06-03">Juin 3, 2024</time>
+                                    </div>
+                                    <h3 class="h3 blog-item-title">Guide complet de JavaScript sur MDN</h3>
+                                    <p class="blog-text">
+                                        Le guide JavaScript de la MDN est une ressource incontournable pour les
+                                        développeurs souhaitant maîtriser ce langage. Il couvre tous les aspects,
+                                        des bases aux concepts avancés, avec des exemples clairs et des explications
+                                        détaillées. Que vous soyez débutant ou expert, ce guide vous aidera à
+                                        approfondir vos connaissances en JavaScript et à améliorer vos compétences de
+                                        développement web.
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="contact" data-page="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <header>
+                    <h2 class="h2 article-title">Contact</h2>
+                </header>
+                <section class="mapbox" data-mapbox>
+                    <figure>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26891.01307396413!2d-1.579889!3d47.218371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480eebb1e5c6b1e3%3A0x40ca5cd36e6c6c0!2sNantes%2C%20France!5e0!3m2!1sfr!2sfr!4v1717430400000!5m2!1sfr!2sfr"
+                            width="400" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Carte de localisation à Nantes" allowfullscreen></iframe>
+                    </figure>
+                </section>
+
+                <section class="contact-form">
+                    <h3 class="h3 form-title">Formulaire de Contact</h3>
+
+                    <form action="#" class="form" data-form method="POST">
+                        <div class="input-wrapper">
+                            <input type="text" name="fullname" class="form-input" placeholder="Nom complet" required
+                                data-form-input aria-label="Nom complet">
+                            <input type="email" name="email" class="form-input" placeholder="Adresse email" required
+                                data-form-input aria-label="Adresse email">
+                        </div>
+
+                        <textarea name="message" class="form-input" placeholder="Votre message" required data-form-input
+                            aria-label="Votre message" rows="5"></textarea>
+
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Envoyer le message</span>
+                        </button>
+                    </form>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
