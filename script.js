@@ -1,1147 +1,714 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="fr">
 
-// ======================
-// FONCTIONS DE BASE
-// ======================
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio d'Ahaddou Heymad - Développeur web et applications">
+    <meta name="keywords" content="développeur, portfolio, web, applications, Java, Python, SQL">
+    <title>Portfolio d'Ahaddou Heymad - Développeur</title>
+    <link rel="stylesheet" href="style.css">
+</head>    <link rel="shortcut icon" href="img/pexels-photo-577585.PNG" type="image/x-icon">
 
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-sidebarBtn.addEventListener("click", function() { elementToggleFunc(sidebar); });
+<body>
+    <main>
+        <aside class="sidebar" data-sidebar role="complementary" aria-label="Informations personnelles">
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="img/pexels-photo-577585.PNG" alt="Photo de profil d'Ahaddou Heymad" width="80">
+                </figure>
 
-// ======================
-// TESTIMONIALS MODAL
-// ======================
+                <div class="info-content">
+                    <h1 class="name" title="Ahaddou Heymad">Ahaddou Heymad</h1>
+                    <p class="title">Developer</p>
+                </div>
 
-const testimonialsItem = document.querySelectorAll('[data-testimonials-item]');
-const modalContainer = document.querySelector('[data-modal-container]');
-const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
-const overlay = document.querySelector('[data-overlay]');
-const modalImg = document.querySelector('[data-modal-img]');
-const modalTitle = document.querySelector('[data-modal-title]');
-const modalText = document.querySelector('[data-modal-text]');
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
 
-const testimonialsModalFunc = function () {
-  if (modalContainer) modalContainer.classList.toggle('active');
-  if (overlay) overlay.classList.toggle('active');
-}
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
 
-for (let i = 0; i < testimonialsItem.length; i++) {
-  testimonialsItem[i].addEventListener('click', function () {
-    if (modalImg) { modalImg.src = this.querySelector('[data-testimonials-avatar]').src; modalImg.alt = this.querySelector('[data-testimonials-avatar]').alt; }
-    if (modalTitle) modalTitle.innerHTML = this.querySelector('[data-testimonials-title]').innerHTML;
-    if (modalText) modalText.innerHTML = this.querySelector('[data-testimonials-text]').innerHTML;
-    testimonialsModalFunc();
-  });
-}
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+                            <a href="mailto:heymad.ahaddou2804@gmail.com"
+                                class="contact-link">heymad.ahaddou2804@gmail.com</a>
+                        </div>
+                    </li>
 
-if (modalCloseBtn) modalCloseBtn.addEventListener('click', testimonialsModalFunc);
-if (overlay) overlay.addEventListener('click', testimonialsModalFunc);
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-title">Phone</p>
+                            <a href="tel:+330698629241" class="contact-link">+33 06.98.62.92.41</a>
+                        </div>
+                    </li>
 
-// ======================
-// PORTFOLIO FILTER
-// ======================
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-title">Birthday</p>
+                            <time datetime="2003-04-28">April 28, 2003</time>
+                        </div>
+                    </li>
 
-const select = document.querySelector('[data-select]');
-const selectItems = document.querySelectorAll('[data-select-item]');
-const selectValue = document.querySelector('[data-select-value]');
-const filterBtn = document.querySelectorAll('[data-filter-btn]');
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
+                            <address>25 rue de la blanchere, 44150 Vair-sur-Loire</address>
+                        </div>
+                    </li>
+                </ul>
+                <div class="separator"></div>
 
-if (select) select.addEventListener('click', function () { elementToggleFunc(this); });
+                <ul class="social-list">
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-facebook"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-twitter"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon
+                                name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
 
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener('click', function() {
-    let selectedValue = this.innerText.toLowerCase();
-    if (selectValue) selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-  });
-}
+        <div class="main-content">
+            <nav class="navbar" role="navigation" aria-label="Navigation principale">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><button class="navbar-link active" data-nav-link
+                            aria-current="page">About</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+                </ul>
+            </nav>
 
-const filterItems = document.querySelectorAll('[data-filter-item]');
+            <article class="about active" data-page="about" role="tabpanel" aria-labelledby="about-tab">
+                <header>
+                    <h2 class="h2 article-title">A propos de moi</h2>
+                </header>
 
-const filterFunc = function (selectedValue) {
-  for (let i = 0; i < filterItems.length; i++) {
-    if (selectedValue === "all") {
-      filterItems[i].classList.add('active');
-    } else if (selectedValue === filterItems[i].dataset.category.toLowerCase()) {
-      filterItems[i].classList.add('active');
-    } else {
-      filterItems[i].classList.remove('active');
-    }
-  }
-}
+                <section class="about-text">
+                    <p>Bonjour, je m'appelle Ahaddou Heymad, j'ai 23 ans et je suis étudiant en deuxième année de BTS SIO (Services Informatiques aux Organisations), option SLAM.</p>
+                    <p>Mes centres d'intérêt incluent les jeux vidéo, le sport et la bande dessinée.</p>
+                    <p>J'ai obtenu un baccalauréat en Sciences et Technologies de l'Industrie et du Développement
+                        Durable (STI2D), spécialité Systèmes d'Information et Numérique (SIN), au Lycée Eugène Livet à
+                        Nantes.</p>
+                    <p>Par la suite, j'ai décidé de poursuivre mes études en BUT Informatique pour apprendre le
+                        développement informatique et l'analyse de données. Cependant, n'y trouvant pas satisfaction,
+                        j'ai choisi de me réorienter en BTS SIO.</p>
+                </section>
+                <section class="service">
+                    <h3 class="h3 service-title">Hobbies</h3>
 
-let lastClickedBtn = filterBtn[0];
-for (let i = 0; i < filterBtn.length; i++) {
-  filterBtn[i].addEventListener('click', function() {
-    let selectedValue = this.innerText.toLowerCase();
-    if (selectValue) selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-    if (lastClickedBtn) lastClickedBtn.classList.remove('active');
-    this.classList.add('active');
-    lastClickedBtn = this;
-  });
-}
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/ZqgqrqzG/icon-dev.png" alt="icon" width="40">
+                            </div>
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">coding</h4>
+                                <p class="service-item-text">J'aime coder, que ce soit pour créer des applications, des
+                                    sites web ou des jeux. Je trouve cela très gratifiant de voir mes idées prendre
+                                    forme grâce à la programmation.</p>
+                            </div>
+                        </li>
 
-// ======================
-// CONTACT FORM
-// ======================
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="" alt="icon" width="40">
+                            </div>
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Video game</h4>
+                                <p class="service-item-text">
+                                    J'aime bien les jeux vidéo, en particulier les jeux d'action. Je passe beaucoup de
+                                    temps à jouer et à découvrir de nouveaux jeux.
+                                </p>
+                            </div>
+                        </li>
 
-const form = document.querySelector('[data-form]');
-const formInputs = document.querySelectorAll('[data-form-input]');
-const formBtn = document.querySelector('[data-form-btn]');
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/xjLdzYxZ/icon-app.png" alt="icon" width="40">
+                            </div>
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Sport</h4>
+                                <p class="service-item-text">
+                                    J'aime le sport, en particulier le football et le basketball. Je pratique
+                                    régulièrement ces sports pour rester en forme et m'amuser.</p>
+                            </div>
+                        </li>
 
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener('input', function () {
-    if (form && form.checkValidity()) {
-      if (formBtn) formBtn.removeAttribute('disabled');
-    } else {
-      if (formBtn) formBtn.setAttribute('disabled', '');
-    }
-  });
-}
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/0NL8zHpx/icon-photo.png" alt="icon" width="40">
+                            </div>
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">BD</h4>
+                                <p class="service-item-text">J'aime lire des bandes dessinées, en particulier les séries
+                                    de science-fiction. Je trouve que les illustrations ajoutent une dimension
+                                    supplémentaire à l'histoire.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
 
-// ======================
-// PAGE NAVIGATION
-// ======================
+                <div class="modal-container " data-modal-container>
+                    <div class="overlay " data-overlay></div>
+                    <button class="modal-close-btn" data-modal-close-btn><ion-icon
+                            name="close-outline"></ion-icon></button>
+                </div>
+            </article>
 
-const navigationLinks = document.querySelectorAll('[data-nav-link]');
-const pages = document.querySelectorAll('[data-page]');
+            <article class="resume " data-page="resume">
+                <header>
+                    <h2 class="h2 article-title">Resume</h2>
+                </header>
 
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener('click', function() {
-    for (let j = 0; j < pages.length; j++) {
-      if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
-        pages[j].classList.add('active');
-        navigationLinks[j].classList.add('active');
-        window.scrollTo(0, 0);
-        if (pages[j].dataset.page === 'blog') setTimeout(chargerVeilleTechno, 100);
-        if (pages[j].dataset.page === 'portfolio') setTimeout(injecterBadgesCompetences, 50);
-      } else {
-        pages[j].classList.remove('active');
-        navigationLinks[j].classList.remove('active');
-      }
-    }
-  });
-}
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+                        <h3 class="h3">Education</h3>
+                    </div>
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">BTS SIO (service informatique aux Organisations) - La
+                                Joliverie, Nantes</h4>
+                            <span>2024 - 2026</span>
+                            <p class="timeline-text">Actuellement étudiant à La Joliverie, où je poursuis un BTS SIO
+                                (Services Informatiques aux Organisations).
+                                Mon parcours académique m'a permis d'acquérir des compétences solides en développement
+                                web, en gestion de bases de données et en administration système.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">BUT informatique - IUT de Gradignan, Bordeaux</h4>
+                            <span>2022 - 2024</span>
+                            <p class="timeline-text">
+                                J'ai passé deux ans en BUT Informatique à l'IUT de Gradignan, Bordeaux, où j'ai
+                                approfondi mes connaissances en développement logiciel, en gestion de projets
+                                informatiques et en analyse de données.
+                                Ayant des difficultés dans ce cursus, j'ai décidé de me réorienter vers un BTS SIO pour
+                                mieux correspondre à mes aspirations professionnelles.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Bac STI2D (sciences et technologies de l'industrie et du
+                                développement durable) - Livet, Nantes</h4>
+                            <span>2020 - 2022</span>
+                            <p class="timeline-text"> J'ai eu mon Bac STI2D option SIN (Systèmes d'Information et
+                                Numérique) au lycée Livet à Nantes,
+                                cette formation m'a permis d'acquérir des compétences solides en informatique et en
+                                développement durable qui m'ont orienté vers des études supérieures dans le domaine des
+                                technologies de l'information.</p>
+                        </li>
+                    </ol>
+                </section>
 
-// =============================================
-// PROJETS <-> COMPÉTENCES E4
-// Source : Tableau de synthèse BTS SIO 2026 — Ahaddou Heymad
-// =============================================
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+                        <h3 class="h3">Experience</h3>
+                    </div>
 
-const COMP_LABELS = {
-  C1: "Gérer le patrimoine informatique",
-  C2: "Répondre aux incidents",
-  C3: "Développer la présence en ligne",
-  C4: "Travailler en mode projet",
-  C5: "Mettre à disposition un service",
-  C6: "Développement professionnel",
-};
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Stage Dakilab — Dev FullStack</h4>
+                            <span>Janvier 2026 - Février 2026</span>
+                            <p class="timeline-text">
+                                Stage de développement FullStack chez Dakilab (studio numérique, Nantes) sur la plateforme "L'islam dans l'histoire". Stack : Angular, NestJS, MongoDB, TypeScript. Missions : sécurisation des accès (variables d'environnement, Captcha), carte interactive Leaflet, suivi utilisateur (historique "Lu") et gestion de projet Kanban (Trello / Bitbucket).
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Stage Delia Technologies — Dev Web</h4>
+                            <span>Mai 2025 - Juin 2025</span>
+                            <p class="timeline-text">
+                                Stage de développement web chez Delia Technologies (ESN nantaise) sur l'application Give-me-five, outil RH de gestion des propositions contractuelles. Ajout de nouveaux statuts (Recrutée / Abandonnée), système de rappels automatiques par mail (Node-cron, Nodemailer), tests de composants Vitest et Cypress sur 9 composants. Stack : Node.js, Nuxt.js, TypeScript, PostgreSQL, Docker.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Projet TALI java</h4>
+                            <span>Avril 2024</span>
+                            <p class="timeline-text">Dans le cadre de ce projet en binome j'ai développé une application
+                                de gestion de tâches en Java, en utilisant le framework Spring Boot. Ce projet m'a
+                                permis de renforcer mes compétences en développement backend et en gestion de projet.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Projet Fin d'année BUT</h4>
+                            <span>Juin 2024</span>
+                            <p class="timeline-text">Lors de mon projet de fin d'année en BUT, j'ai pu travailler en
+                                équipe sur une solution permettant aux entreprises de consulter les dépenses
+                                énergétiques des pays du monde entier. La solution prenant en compte les différentes
+                                sources d'énergie et leur impact environnemental.
+                                Le tout visualisable via un .exe en c#. Au niveau des langages utilisés, nous avons
+                                utilisé du Python pour la partie backend, ainsi que SQL pour la gestion de la base de
+                                données.
+                            </p>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Projet Towa</h4>
+                            <span>Décembre 2023-Janvier 2024</span>
+                            <p class="timeline-text">TOWA un projet de SAE(Situation d'Apprentissage et d'évaluation)
+                                fait en java,Towa est un jeux de plateau aux tours par tours,ce projet etait divisé en
+                                deux phase, la premiere consistait a coder les regles et atout du jeux via un systeme de
+                                niveaux(la difficultés était proportionnelle au niveau).
+                                La deuxieme phase etait axée sur la création d'une ia a qui il fallait ajoutés les
+                                actions a jouées.</p>
+                        </li>
+                    </ol>
+                </section>
 
-const COMP_COLORS = {
-  C1: "#4fc3f7",
-  C2: "#ef9a9a",
-  C3: "#a5d6a7",
-  C4: "#ffb300",
-  C5: "#ce93d8",
-  C6: "#80cbc4",
-};
+                <section class="skill">
+                    <h3 class="h3 skills-title">My Skills</h3>
 
-const PROJET_COMPETENCES = {
-  "Projet Python": {
-    periode: "06/01 → 09/01/2025",
-    techs: ["Python", "MariaDB", "SQL", "Linux", "Sécurité"],
-    desc: "Automatisation du traitement de logs web. BDD logs_web, droits MariaDB, archivage automatisé et chiffré.",
-    competences: {
-      C1: "Recensement ressources numériques, habilitations MariaDB (utilog/gestionlog), sauvegardes automatisées",
-      C2: "Scripts Python pour automatiser le traitement des logs (logproxy.py)",
-      C3: null,
-      C4: "Respect du cahier des charges, structuration des logs et statistiques",
-      C5: null,
-      C6: null,
-    }
-  },
-  "Projet thali java": {
-    periode: "31/03 → 04/04/2025",
-    techs: ["Java", "MySQL", "Design Pattern DAO", "CRUD", "JAR"],
-    desc: "Application de gestion THALI en Java. Standards Java (paquetages, DAO), droits MySQL, déploiement .jar.",
-    competences: {
-      C1: "Référentiels Java, habilitations via utilisateur MySQL thali_util",
-      C2: "Correction de bugs CRUD lors des tests, contrôle de saisie formulaires",
-      C3: null,
-      C4: "Analyse du cahier des charges (besoins THALI)",
-      C5: "Génération du .jar, documentation utilisateur, tutoriels administration",
-      C6: null,
-    }
-  },
-  "Projet Intranet": {
-    periode: "14/01 → 11/03/2025",
-    techs: ["PHP", "MariaDB", "Apache", "GitLab", "HTML/CSS", "JavaScript"],
-    desc: "Intranet d'entreprise : tickets, gestion des rôles admin/utilisateur, sauvegardes GitLab, déploiement.",
-    competences: {
-      C1: "Inventaire ressources, standards PHP/MariaDB/Apache, gestion des rôles, sauvegardes GitLab",
-      C2: "Module de tickets pour besoins utilisateurs, traitement des demandes applicatives",
-      C3: null,
-      C4: "GitLab pour planification, évaluation des délais (maquettage → développement)",
-      C5: "Tests fonctionnalités (authentification, dashboard), accompagnement utilisateurs",
-      C6: "Acquisition compétences PHP, JS, gestion de projet",
-    }
-  },
-  "Stage chez Delia": {
-    periode: "12/05 → 20/06/2025",
-    techs: ["JavaScript", "Docker", "Vitest", "Cypress", "CI/CD"],
-    desc: "Stage dev web chez Delia — projet Give-me-five. Tests d'intégration, déploiement recette, accompagnement RH.",
-    competences: {
-      C1: null,
-      C2: null,
-      C3: null,
-      C4: "Analyse des objectifs Give-me-five, évaluation indicateurs (tests, code reviews, déploiement)",
-      C5: "Tests d'intégration et d'acceptation Vitest/Cypress, déploiement recette, accompagnement RH",
-      C6: "Autoformation JavaScript/Docker, veille informationnelle, identité professionnelle",
-    }
-  },
-  "Site Web Restaurant": {
-    periode: "15/09 → 24/10/2025",
-    techs: ["PHP", "MySQL", "HTML/CSS", "Scrum", "Tickets"],
-    desc: "Site restaurant en PHP avec méthodologie Scrum. Tickets d'amélioration, Daily scrum, attribution des tâches.",
-    competences: {
-      C1: "Exploitation des référentiels et standards avec itérations",
-      C2: "Collecte et suivi des demandes via tickets d'amélioration",
-      C3: null,
-      C4: "Analyse des objectifs via tickets, Daily scrum, planification et attribution",
-      C5: null,
-      C6: null,
-    }
-  },
-  "Stage chez Dakilab": {
-    periode: "05/01 → 12/02/2026",
-    techs: ["Web", "Scrum", "Daily scrum", "Gestion projet"],
-    desc: "Stage dev web chez Dakilab. Continuité de service, valorisation image en ligne, organisation via tickets.",
-    competences: {
-      C1: "Vérification des conditions de continuité du service informatique",
-      C2: null,
-      C3: "Valorisation de l'image de l'organisation sur les médias numériques",
-      C4: "Analyse des objectifs via tickets, Daily scrum",
-      C5: null,
-      C6: "Gestion identité professionnelle, intégration équipe",
-    }
-  },
-};
+                    <ul class="skills-list content-card">
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">Python</h5>
+                                <data value="90">90%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </li>
 
-function badgesTechs(techs) {
-  return techs.map(t => `<span style="
-    display:inline-block;background:rgba(255,179,0,0.12);color:var(--orange-yellow-crayola);
-    border:1px solid rgba(255,179,0,0.3);border-radius:20px;font-size:11px;
-    padding:2px 8px;margin:2px 2px 0 0;font-family:var(--ff-poppins);">${t}</span>`).join('');
-}
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">JAVA</h5>
+                                <data value="70">70%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">html,PHP</h5>
+                                <data value="70">70%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">SQL</h5>
+                                <data value="90">90%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">JavaScript, TypeScript, Node.js, Nuxt</h5>
+                                <data value="65">65%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </li>
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">Angular, NestJS, MongoDB</h5>
+                                <data value="50">50%</data>
+                            </div>
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 50%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </article>
 
-function badgesComps(comps) {
-  return Object.entries(comps)
-    .filter(([, v]) => v)
-    .map(([key]) => `<span title="${comps[key]}" style="
-      display:inline-block;background:${COMP_COLORS[key]}22;color:${COMP_COLORS[key]};
-      border:1px solid ${COMP_COLORS[key]}55;border-radius:20px;font-size:10px;
-      padding:2px 9px;margin:2px 2px 0 0;font-family:var(--ff-poppins);cursor:help;">
-      ${key} · ${COMP_LABELS[key]}</span>`).join('');
-}
+            <article class="portfolio " data-page="portfolio">
+                <header>
+                    <h2 class="h2 article-title">Portfolio</h2>
+                </header>
 
-function injecterBadgesCompetences() {
-  document.querySelectorAll('.project-item').forEach(item => {
-    if (item.querySelector('.comp-badges')) return;
-    const titleEl = item.querySelector('.project-title');
-    if (!titleEl) return;
-    const titre = titleEl.textContent.trim();
-    const data = PROJET_COMPETENCES[titre];
-    if (!data) return;
+                <section class="projects">
+                    <ul class="filter-list">
+                        <li class="filter-item"><button class="active" data-filter-btn>ALL</button></li>
+                        <li class="filter-item"><button data-filter-btn>JAVA</button></li>
+                        <li class="filter-item"><button data-filter-btn>Python</button></li>
+                        <li class="filter-item"><button data-filter-btn>SQL</button></li>
+                        <li class="filter-item"><button data-filter-btn>Web Development</button></li>
+                        <li class="filter-item"><button data-filter-btn>Autres</button></li>
+                    </ul>
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'comp-badges';
-    wrapper.style.cssText = 'padding:0 12px 14px;margin-top:-6px;';
-    const titreEscaped = titre.replace(/'/g, "\\'");
-    wrapper.innerHTML = `
-      <p style="font-size:11px;color:var(--light-gray70);margin:0 0 5px;line-height:1.5;">${data.desc}</p>
-      <p style="font-size:10px;color:var(--vegas-gold);margin:0 0 5px;">📅 ${data.periode}</p>
-      <div style="margin-bottom:5px;">${badgesTechs(data.techs)}</div>
-      <div style="margin-bottom:10px;">${badgesComps(data.competences)}</div>
-      <button onclick="event.stopPropagation();ouvrirModalProjet('${titreEscaped}')" style="
-        display:inline-flex;align-items:center;gap:6px;
-        background:var(--jet);color:var(--light-gray);
-        border:1px solid var(--border-gradient-onyx);
-        border-radius:20px;font-size:12px;padding:5px 14px;
-        cursor:pointer;font-family:var(--ff-poppins);
-        transition:all .2s;width:100%;justify-content:center;margin-top:2px;
-      "
-      onmouseover="this.style.background='var(--orange-yellow-crayola)';this.style.color='var(--eerie-black1)';this.style.borderColor='var(--orange-yellow-crayola)'"
-      onmouseout="this.style.background='var(--jet)';this.style.color='var(--light-gray)';this.style.borderColor='var(--border-gradient-onyx)'">
-        <ion-icon name="expand-outline" style="font-size:13px;"></ion-icon>
-        Voir le détail
-      </button>
-    `;
-    item.appendChild(wrapper);
-  });
-}
+                    <div class="filter-select-box">
+                        <button class="filter-select " data-select>
+                            <div class="select-value" data-select-value>Select Category</div>
+                            <div class="select-icon">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                        </button>
 
-const compObserver = new MutationObserver(mutations => {
-  mutations.forEach(m => {
-    if (m.target.classList.contains('portfolio') && m.target.classList.contains('active')) {
-      setTimeout(injecterBadgesCompetences, 50);
-    }
-  });
-});
+                        <ul class="select-list">
+                            <li class="select-item"><button data-select-item>All</button></li>
+                            <li class="select-item"><button data-select-item>JAVA</button></li>
+                            <li class="select-item"><button data-select-item>Python</button></li>
+                            <li class="select-item"><button data-select-item>SQL</button></li>
+                            <li class="select-item"><button data-select-item>Web Development</button></li>
+                            <li class="select-item"><button data-select-item>Autres</button></li>
+                        </ul>
+                    </div>
 
-// =============================================
-// MODAL DÉTAIL PROJET
-// =============================================
+                    <ul class="project-list">
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="Biosphere 7.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/Biosphere7.png" alt="finance" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Biosphere 7</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="Comparaison_d'approches_algorithmiques.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://i.postimg.cc/bNrcM2Wt/project-2.png" alt="orizon" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Towa</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="Odomo.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/station-meteo-connectee-avec-capteur-exterieur-ecran-couleur-et-tendances-a-5-jours-ref_NX6170_13.PNG"
+                                        alt="fundo" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">ODOMO</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="SQL">
+                            <a href="Création_d'une_base_de_donnée.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/1627286560-sql-databases.avif" alt="brawlhalla" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Gestion base de données</h3>
+                                <p class="project-category">SQL</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="Python">
+                            <a href="retex_projet_python (1).pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/image_python.jpg" alt="dsm." loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Projet Python</h3>
+                                <p class="project-category">Python</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="Autres">
+                            <a href="SAE_de_Gestion_des_Organisations.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/gestion-de-projets.png" alt="metaspark" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">SAE Gestion des Organisations</h3>
+                                <p class="project-category">Autres</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="JAVA">
+                            <a href="retex_projet_java_thali.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3S9FqOWEjqGZPQ98L55jzxu9OXbJqwXx_Gw&s"
+                                        alt="summary" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Projet thali java</h3>
+                                <p class="project-category">JAVA</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="Autres">
+                            <a href="SAE_1.03_InfoSystèmes.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="img/Installation d'un poste pour le développement.png" alt="task manager"
+                                        loading="lazy">
+                                </figure>
+                                <h3 class="project-title">SAE installation de poste</h3>
+                                <p class="project-category">Autres</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="retex_projet_corpany.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://spectrum365.io/wp-content/uploads/2024/06/25225760_7063763-scaled-1.jpg"
+                                        alt="task manager" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Projet Intranet</h3>
+                                <p class="project-category">Web</p>
+                            </a>
+                        </li>
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="Ahaddou_Heymad_1SLAM_2025_Stage_1_Rapport.pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://cdn.prod.website-files.com/5dc008cb9bf13ecb81574ae7/5ff426aaba8a87f09e7e5f6e_logo_DT_6.png"
+                                        alt="arrival" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Stage chez Delia</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
 
-// PDF par projet — chemins réels depuis l'arborescence du projet
-const PROJET_PDF = {
-  "Projet Python":        "./retours_experience/retex_projet_python (1).pdf",
-  "Projet thali java":    "./retours_experience/retex_projet_java_thali.pdf",
-  "Projet Intranet":      "./retours_experience/retex_projet_intranet.pdf",
-  "Stage chez Delia":     "./retours_experience/retex_stage_delia.pdf",
-  "Site Web Restaurant":  "./retours_experience/retex_site_restaurant.pdf",
-  "Stage chez Dakilab":   "./retours_experience/retex_stage_dakilab.pdf",
-};
+                            <!-- NOUVEAU : FICHIER EXCEL DE COMPÉTENCES -->
+                            <li class="project-item active" data-filter-item data-category="Autres">
+                                <a href="Tableau_de_synthe_se_BTS_SIO_2026_ahaddou (3).pdf"
+                                    download="Tableau_Compétences_Heymad_Ahaddou.xlsx">
+                                    <figure class="project-img">
+                                        <div class="project-item-icon-box">
+                                            <ion-icon name="download-outline"></ion-icon>
+                                        </div>
+                                        <img src="https://static.vecteezy.com/system/resources/previews/005/442/691/non_2x/skills-learning-personal-development-finance-competency-business-concept-photo.jpg"
+                                            alt="Tableau Excel Compétences" loading="lazy">
+                                    </figure>
+                                    <h3 class="project-title">Tableau de Compétences</h3>
+                                    <p class="project-category">Autres</p>
+                                    <p class="project-description" style="font-size: 12px; color: var(--light-gray70); margin-top: 5px;">
+                                        <ion-icon name="stats-chart-outline" style="vertical-align: middle;"></ion-icon>
+                                        Synthèse des compétences techniques
+                                    </p>
+                                </a>
+                            </li>
+                            <!-- NOUVEAU : PROJET PHP SITE RESTO -->
+                            <li class="project-item active" data-filter-item data-category="web development">
+                                <a href="Projet_PhpsiteResto.zip" download="Projet_PhpsiteResto.zip">
+                                    <figure class="project-img">
+                                        <div class="project-item-icon-box">
+                                            <ion-icon name="eye-outline"></ion-icon>
+                                        </div>
+                                        <img src="https://kinsta.com/fr/wp-content/uploads/sites/4/2023/09/PHP_Feature-Image-1024x536.jpg"
+                                            alt="Site Restaurant PHP" loading="lazy">
+                                    </figure>
+                                    <h3 class="project-title">Site Web Restaurant</h3>
+                                    <p class="project-category">Web Development</p>
+                                    <p class="project-description" style="font-size: 12px; color: var(--light-gray70); margin-top: 5px;">
+                                        <ion-icon name="code-outline" style="vertical-align: middle;"></ion-icon>
+                                        PHP, MySQL, HTML/CSS
+                                    </p>
+                                </a>
+                            </li>
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="_Ahaddou_Heymad_2SLAM_2026_Stage_2_Rapport (2).pdf">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="https://formation.dakilab.fr/logo.png" alt="Dakilab" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">Stage chez Dakilab</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
 
-// Description longue par projet
-const PROJET_DETAILS = {
+            <article class="blog " data-page="blog">
+                <header>
+                    <h2 class="h2 article-title">Blog</h2>
+                </header>
 
-  // ─────────────────────────────────────────
-  // PROJET PYTHON
-  // Preuves : PDF Projet Janvier (p.5-11) + screens
-  // ─────────────────────────────────────────
-  "Projet Python": `
-    <p>Automatisation complète du traitement de logs web sur un serveur Linux Rocky (VM vSphere). Le projet couvre 9 étapes allant de la génération de pseudonymes Python jusqu\'à la rédaction d\'un mode opératoire.</p>
+                <section class="veille-techno">
+    <header>
+        <h3 class="h3 article-title">Veille Technologique</h3>
+    </header>
 
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🔒 C1 — Preuves : Gestion du patrimoine informatique
-      </p>
+    <div style="margin-bottom: 25px;">
+        <p class="about-text" style="margin-bottom: 15px;">
+            Cette veille technologique porte sur l'usage des technologies d'Intelligence Artificielle
+            dans le développement web et logiciel.
+        </p>
 
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;margin-bottom:10px;border-left:3px solid #4fc3f7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 6px;">📸 Création BDD <code>logs_web</code> + utilisateurs MariaDB avec droits distincts</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;overflow-x:auto;">
-          create user \'utilog\'@\'localhost\';<br>
-          grant SELECT ON *.* to \'utilog\'@\'localhost\';<br>
-          <span style="color:#56d364;">-- utilog : lecture seule ✓</span><br><br>
-          create user \'gestionlog\'@\'localhost\';<br>
-          grant INSERT, DELETE, UPDATE, SELECT ON *.* to \'gestionlog\'@\'localhost\';<br>
-          <span style="color:#56d364;">-- gestionlog : accès complet ✓</span>
+        <!-- LES BOUTONS AVEC LES BONS IDs -->
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button id="refresh-veille-btn" class="form-btn" type="button">
+                <ion-icon name="sync-outline"></ion-icon>
+                <span>Actualiser</span>
+            </button>
+            <button id="archive-btn" class="form-btn" type="button" style="background: var(--jet);">
+                <ion-icon name="library-outline"></ion-icon>
+                <span>Archive</span>
+            </button>
         </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Projet Janvier — Étape 2, p.7 du rapport</p>
-      </div>
 
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 6px;">📸 Schéma BDD — Tables <code>employes</code> et <code>journaux_acces</code></p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;overflow-x:auto;">
-          <span style="color:#f0883e;">logs_web.employes</span> → id_employes, nom, prenom, email, adresse_ip, date_creation, date_modif<br>
-          <span style="color:#f0883e;">logs_web.journaux_acces</span> → id_acces, adresse_ip_employe (FK), horordatage, url_consultee, methode_http, code_reponse
+        <h4 class="h4" style="color: var(--white2); margin-bottom: 15px;">
+            Dernières actualités IA
+        </h4>
+
+        <!-- LE CONTENEUR AVEC LE BON ID -->
+        <div id="rss-veille-container"
+            style="min-height: 300px; padding: 20px; background: var(--eerie-black1); border-radius: 12px;">
+            <!-- Les articles apparaîtront ici -->
         </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Projet Janvier — Étape 2, p.9 du rapport</p>
-      </div>
     </div>
+</section>
+    <!-- SCRIPT DE DEBUG - À AJOUTER TEMPORAIREMENT -->
+    <script>
+        console.log("=== DEBUG VEILLE ===");
+        console.log("1. Document chargé");
 
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🐛 C2 — Preuves : Automatisation et traitement des incidents
-      </p>
+        // Vérifier si le conteneur existe
+        const container = document.getElementById("rss-veille-container");
+        console.log("2. Conteneur trouvé ?", container ? "✅ OUI" : "❌ NON");
 
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;margin-bottom:10px;border-left:3px solid #ef9a9a;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 6px;">📸 Script <code>logproxy.py</code> — Lecture et traitement automatique des logs</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;overflow-x:auto;">
-          <span style="color:#ff7b72;">def</span> <span style="color:#d2a8ff;">readData</span>(file):<br>
-          &nbsp;&nbsp;data_list = []<br>
-          &nbsp;&nbsp;<span style="color:#ff7b72;">with</span> open(file, <span style="color:#a5d6ff;">"r"</span>) <span style="color:#ff7b72;">as</span> f:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff7b72;">for</span> line <span style="color:#ff7b72;">in</span> f:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_list.append(line.strip().split(<span style="color:#a5d6ff;">";"</span>))<br>
-          &nbsp;&nbsp;<span style="color:#ff7b72;">return</span> data_list<br>
-          <span style="color:#56d364;">-- Résultat : fichiers CSV générés dans csv_dossier/ ✓</span>
+        if (container) {
+            console.log("3. Conteneur HTML:", container.outerHTML.substring(0, 100) + "...");
+
+            // Afficher un message TEST immédiatement
+            container.innerHTML = `
+                <div style="text-align: center; padding: 40px; color: #ffb300;">
+                    <ion-icon name="bug-outline" style="font-size: 48px;"></ion-icon>
+                    <h4 style="margin: 15px 0;">DEBUG ACTIF</h4>
+                    <p>Le script veille est chargé</p>
+                    <p style="font-size: 12px; color: #ccc;">${new Date().toLocaleTimeString()}</p>
+                </div>
+            `;
+
+            console.log("4. Message debug affiché");
+        }
+
+        // Vérifier les boutons
+        const refreshBtn = document.getElementById("refresh-veille-btn");
+        const archiveBtn = document.getElementById("archive-btn");
+        console.log("5. Bouton Actualiser trouvé ?", refreshBtn ? "✅" : "❌");
+        console.log("6. Bouton Archive trouvé ?", archiveBtn ? "✅" : "❌");
+
+        console.log("=== FIN DEBUG ===");
+    </script>
+
+                <section class="synthese-veille">
+                    <h4 class="h4"
+                        style="color: var(--white2); margin: 30px 0 15px 0; border-bottom: 1px solid var(--jet); padding-bottom: 10px;">
+                        Synthèse & Analyses
+                    </h4>
+
+                    <div class="synthese-grid">
+                        <div class="synthese-card">
+                            <div class="card-icon">
+                                <ion-icon name="code-slash-outline"></ion-icon>
+                            </div>
+                            <h5 class="h5">IA dans le développement</h5>
+                            <p class="synthese-text">
+                                Les outils comme GitHub Copilot et Amazon CodeWhisperer transforment l'écriture de code,
+                                mais nécessitent une vigilance accrue sur la sécurité et la qualité.
+                            </p>
+                        </div>
+
+                        <div class="synthese-card">
+                            <div class="card-icon">
+                                <ion-icon name="shield-checkmark-outline"></ion-icon>
+                            </div>
+                            <h5 class="h5">Nouvelles vulnérabilités</h5>
+                            <p class="synthese-text">
+                                L'OWASP a ajouté des failles spécifiques aux LLM dans son Top 10 2024, notamment les
+                                injections de prompts et les fuites de données.
+                            </p>
+                        </div>
+
+                        <div class="synthese-card">
+                            <div class="card-icon">
+                                <ion-icon name="trending-up-outline"></ion-icon>
+                            </div>
+                            <h5 class="h5">Tendances 2025</h5>
+                            <p class="synthese-text">
+                                Python domine toujours le machine learning, tandis que Rust gagne en popularité pour les
+                                systèmes critiques nécessitant sécurité et performance.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <article class="contact" data-page="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <header>
+                    <h2 class="h2 article-title">Contact</h2>
+                </header>
+                <section class="mapbox" data-mapbox>
+                    <figure>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26891.01307396413!2d-1.579889!3d47.218371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480eebb1e5c6b1e3%3A0x40ca5cd36e6c6c0!2sNantes%2C%20France!5e0!3m2!1sfr!2sfr!4v1717430400000!5m2!1sfr!2sfr"
+                            width="400" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Carte de localisation à Nantes" allowfullscreen></iframe>
+                    </figure>
+                </section>
+
+                <section class="contact-form">
+                    <h3 class="h3 form-title">Formulaire de Contact</h3>
+
+                    <form action="#" class="form" data-form method="POST">
+                        <div class="input-wrapper">
+                            <input type="text" name="fullname" class="form-input" placeholder="Nom complet" required
+                                data-form-input aria-label="Nom complet">
+                            <input type="email" name="email" class="form-input" placeholder="Adresse email" required
+                                data-form-input aria-label="Adresse email">
+                        </div>
+
+                        <textarea name="message" class="form-input" placeholder="Votre message" required data-form-input
+                            aria-label="Votre message" rows="5"></textarea>
+
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Envoyer le message</span>
+                        </button>
+                    </form>
+                </section>
+            </article>
         </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Projet Janvier — Étape 6, p.19-20 du rapport</p>
-      </div>
+    </main>
 
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ef9a9a;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 6px;">📸 Analyse des URL les plus consultées par IP — résultat terminal</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#56d364;line-height:1.7;overflow-x:auto;">
-          L\'URL la plus visitée par 192.168.2.2 est https://www.netflix.com — 97 fois<br>
-          L\'URL la plus visitée par 192.168.2.3 est https://nxdomain-test.site — 98 fois<br>
-          L\'URL la plus visitée par 192.168.2.1 est https://nxdomain-test.site — 103 fois<br>
-          L\'URL la plus visitée par 192.168.2.100 est https://www.spotify.com — 101 fois
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Projet Janvier — Étape 5, p.18 du rapport</p>
-      </div>
-    </div>
-  `,
+    <script src="script.js"></script>
 
-  // ─────────────────────────────────────────
-  // PROJET THALI JAVA
-  // Preuves : screen droits MySQL + interface appli
-  // ─────────────────────────────────────────
-  "Projet thali java": `
-    <p>Développement d\'une application de gestion en <strong>Java</strong> pour le projet THALI (gestion de mini-excursions). Respect des standards Java (paquetages, design pattern DAO), déploiement en <code>.jar</code>.</p>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
 
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🔒 C1 — Preuves : Schéma BDD + Architecture DAO
-      </p>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Schéma BDD — Tables <code>thali.etape</code> et <code>thali.excursion</code> avec relation</p>
-        <img
-          src="./img/thali-php_admin.png"
-          alt="Schéma BDD THALI — tables etape et excursion avec relation CodeExcursion"
-          style="width:100%;max-width:560px;border-radius:8px;border:1px solid var(--jet);display:block;"
-          onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"
-        />
-        <div style="display:none;background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          thali.etape → Id, CodeExcursion (FK), NumEtape, Description, DureePrevue<br>
-          thali.excursion → Code (PK), Libelle, NbPlaces, Tarif
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Clé étrangère <code>CodeExcursion</code> → intégrité référentielle assurée. Utilisateur <code>thali_util</code> avec droits limités à cette BDD.</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Arborescence projet Java — paquetages et design pattern DAO</p>
-        <img
-          src="./img/thali-arborescence.png"
-          alt="Arborescence projet Java THALI — paquetages DAO, GUI, lanceur, modele.metier"
-          style="width:100%;max-width:300px;border-radius:8px;border:1px solid var(--jet);display:block;"
-          onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"
-        />
-        <div style="display:none;background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          gui/ → JFrameLesExcursions.java<br>
-          lanceur/ → LanceurThaliMini.java<br>
-          modele.dao/ → ConnexionBDD.java, DaoEtape.java, DaoMiniExcursion.java<br>
-          modele.metier/ · sql/ · test.dao/ · test.metier/
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Architecture DAO respectée — séparation GUI / métier / accès BDD</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🐛 C2 — Preuves : Interface CRUD fonctionnelle
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ef9a9a;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Module THALI-MINI — Gestion des mini-excursions</p>
-        <img
-          src="./img/thali-interface.png"
-          alt="Interface THALI-MINI — gestion excursions avec étapes, durée totale et boutons CRUD"
-          style="width:100%;max-width:680px;border-radius:8px;border:1px solid var(--jet);display:block;margin-bottom:12px;"
-          onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"
-        />
-        <div style="display:none;"></div>
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Sélection d\'excursion via liste déroulante (E01 — Excursion dans l\'île — 8 pl.)</li>
-          <li>Tableau des étapes : numéro, description, durée — calcul automatique <strong>03h05mn</strong></li>
-          <li>Opérations CRUD complètes : Réservation, Modifier, Ajouter Ex, Ajouter Étape, Supprimer</li>
-          <li>Déploiement compilé via NetBeans → génération du <code>.jar</code></li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Preuve : interface fonctionnelle avec opérations CRUD complètes et contrôle de saisie</p>
-      </div>
-    </div>
-  `,
-
-  // ─────────────────────────────────────────
-  // PROJET INTRANET
-  // ─────────────────────────────────────────
-  "Projet Intranet": `
-    <p>Réalisation d'un intranet d'entreprise <strong>CORPANY</strong> en <strong>PHP / MariaDB / Apache</strong>, géré via GitLab. Gestion des rôles, messagerie, notifications, module d'actualités et déploiement complet.</p>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🔒 C1 — Preuves : Architecture MVC + Modélisation BDD
-      </p>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Page d'accueil de l'intranet CORPANY — interface déployée</p>
-        <img
-          src="./img/page_accueil_intra.png"
-          alt="Page d'accueil intranet CORPANY — navigation, Mon coin RH, Congé/Arrêt Maladie, Formations"
-          style="width:100%;max-width:680px;border-radius:8px;border:1px solid var(--jet);display:block;"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-        />
-        <div style="display:none;background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          Intranet CORPANY — Page d'accueil<br>
-          Nav : Page d'accueil · Mes documents · Entreprise · Contact · Outils · Administration<br>
-          Modules : Mon coin RH · Congé/Arrêt Maladie · Formations disponibles
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Interface déployée et fonctionnelle — navigation complète avec gestion des rôles (admin / utilisateur)</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Diagramme UML — Modélisation BDD (Groupe, Utilisateur, Actualité)</p>
-        <img
-          src="./img/schema_intranet.png"
-          alt="Diagramme UML intranet — tables Groupe, Utilisateur, Actualité avec relations"
-          style="width:100%;max-width:560px;border-radius:8px;border:1px solid var(--jet);display:block;"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-        />
-        <div style="display:none;background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          Groupe (1) ──── (0..*) Utilisateur<br>
-          Groupe (1) ──── (1..*) Actualité<br>
-          Groupe → id_groupe, nom_groupe, role<br>
-          Utilisateur → id_user, mdp, identifiant, date_creation<br>
-          Actualité → id_actualite, titre_actualite, actualite (longtext)
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Modélisation UML — séparation des rôles par groupe, gestion des actualités et des utilisateurs</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 8px;">📁 Arborescence projet PHP — Architecture MVC</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          PhpProjectIntranet/<br>
-          &nbsp;&nbsp;├── <span style="color:#f0883e;">controleur/</span> ← logique métier<br>
-          &nbsp;&nbsp;├── <span style="color:#f0883e;">modele/</span> &nbsp;&nbsp;&nbsp;← accès BDD (DAO)<br>
-          &nbsp;&nbsp;├── <span style="color:#f0883e;">vue/</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← templates HTML<br>
-          &nbsp;&nbsp;├── css/, images/, includes/<br>
-          &nbsp;&nbsp;├── sql/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← scripts SQL versionnés<br>
-          &nbsp;&nbsp;└── index.php, getRacine.php, .gitignore
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Sauvegarde et versioning via GitLab — gestion des membres et droits d'accès</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🐛 C2 — Preuves : Module de tickets et gestion des incidents
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ef9a9a;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 8px;">📋 Tickets GitLab — suivi des demandes par itération</p>
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Module de tickets intégré dans l'intranet pour collecter les besoins utilisateurs</li>
-          <li>Tickets labellisés par complexité et priorité, suivis par itération</li>
-          <li>Traitement des incidents applicatifs (bugs authentification, dashboard)</li>
-          <li>Accompagnement des utilisateurs lors du déploiement</li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">GitLab non accessible actuellement — suivi documenté dans le retex PDF</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🚀 C5 — Preuves : Tests et mise à disposition
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ce93d8;">
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Tests des fonctionnalités : authentification, tableau de bord, messagerie, notifications</li>
-          <li>Déploiement sur serveur Apache — accès via navigateur</li>
-          <li>Documentation utilisateur et accompagnement à la prise en main</li>
-        </ul>
-      </div>
-    </div>
-  `,
-
-  // ─────────────────────────────────────────
-  // STAGE DELIA
-  // ─────────────────────────────────────────
-  "Stage chez Delia": `
-    <p>Stage de développement web chez <strong>Delia Technologies</strong> (ESN nantaise, 60 collaborateurs) du 12/05 au 20/06/2025. Intégré à l'équipe dev sur l'application <strong>Give-me-five</strong> — outil RH de gestion des propositions contractuelles. Tuteur : Gilles Huet.</p>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🚀 C5 — Preuves : Développement et mise à disposition du service
-      </p>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ce93d8;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Interface Give-me-five — Nouveaux statuts ajoutés (Recrutée / Abandonnée)</p>
-        <img
-          src="./img/interface_delia.png"
-          alt="Interface Give-me-five — tableau candidats avec statuts Recrutée, Abandonnée, Acceptée et menu déroulant"
-          style="width:100%;max-width:680px;border-radius:8px;border:1px solid var(--jet);display:block;margin-bottom:12px;"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-        />
-        <div style="display:none;"></div>
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Ajout du statut <strong>Recrutée</strong> — différenciation missions temporaires / contrats spécifiques</li>
-          <li>Ajout du statut <strong>Abandonnée</strong> — propositions annulées ou obsolètes</li>
-          <li>Modification de la BDD PostgreSQL pour intégrer les nouveaux statuts</li>
-          <li>Mise à jour du fichier <code>fr.json</code> pour la traduction des labels</li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.9 — Missions réalisées</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ce93d8;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 8px;">📸 Résultats des tests Vitest — 9 fichiers, 20 tests passés ✅</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#56d364;line-height:1.7;">
-          Test Files &nbsp;<span style="color:#56d364;font-weight:bold;">9 passed (9)</span><br>
-          Tests &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#56d364;font-weight:bold;">20 passed (20)</span><br>
-          Start at &nbsp;&nbsp;&nbsp;16:29:14<br>
-          Duration &nbsp;&nbsp;&nbsp;13.38s (transform 6.29s, setup 53.89s, collect 7.85s)<br>
-          <span style="color:#79c0ff;">PASS</span> Waiting for file changes...
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.15 — Tests effectués sur 9 composants</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ce93d8;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 8px;">📸 Processus de déploiement — pipeline de validation</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.9;">
-          <span style="color:#f0883e;">1.</span> Développement sur branche dédiée<br>
-          <span style="color:#f0883e;">2.</span> Push sur Git<br>
-          <span style="color:#f0883e;">3.</span> Merge Request — relecture par un pair expérimenté<br>
-          <span style="color:#f0883e;">4.</span> Merge — intégration dans la branche principale<br>
-          <span style="color:#56d364;">5.</span> <strong style="color:#56d364;">Déploiement en recette ✓</strong>
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.15 — Livrables produits</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🧪 C4 — Preuves : Travail en mode projet agile
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ffb300;">
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Analyse des objectifs du projet Give-me-five avant développement</li>
-          <li>Point quotidien en fin de journée pour présenter les avancées</li>
-          <li>Code review obligatoire via Merge Request avant intégration</li>
-          <li>Communication via <strong>Slack</strong> — canaux techniques dédiés</li>
-          <li>Stack : <strong>Node.js</strong>, <strong>Nuxt.js</strong>, <strong>TypeScript</strong>, <strong>PostgreSQL</strong>, <strong>Docker</strong></li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.16 — Méthodologies et pratiques professionnelles</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        📈 C6 — Preuves : Développement professionnel
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #80cbc4;">
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Autoformation JavaScript, TypeScript, Node.js, Nuxt.js, Docker en autonomie</li>
-          <li>Veille via documentation officielle, StackOverflow, YouTube, OpenClassroom</li>
-          <li>Intégration dans une équipe professionnelle — télétravail le mercredi</li>
-          <li>Développement de l'autonomie et de la résolution de problèmes complexes</li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.17-18 — Bilan et compétences acquises</p>
-      </div>
-    </div>
-  `,
-
-  // ─────────────────────────────────────────
-  // SITE WEB RESTAURANT
-  // ─────────────────────────────────────────
-  "Site Web Restaurant": `
-    <p>Développement d\'un site web restaurant en <strong>PHP / MySQL</strong> en méthode Scrum. Architecture MVC, gestion via tickets GitLab, Daily Scrum et attribution des tâches par itération.</p>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🔒 C1 — Preuves : Architecture MVC + Modélisation BDD
-      </p>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Arborescence projet PHP — Architecture MVC (NetBeans)</p>
-        <img
-          src="./img/structure_resto.png"
-          alt="Arborescence projet PHP Site Resto — controleur, modele, vue, sql, tests"
-          style="width:100%;max-width:300px;border-radius:8px;border:1px solid var(--jet);display:block;"
-          onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"
-        />
-        <div style="display:none;background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          PhpProjectSiteRestoInitial/<br>
-          ├── controleur/ &nbsp;├── modele/ &nbsp;├── vue/<br>
-          ├── css/ &nbsp;├── sql/ &nbsp;├── tests/<br>
-          └── index.php, getRacine.php, .gitignore, README.md
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Architecture MVC stricte — séparation contrôleur / modèle / vue avec scripts SQL versionnés</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Schéma BDD complet — 8 tables avec relations (phpMyAdmin)</p>
-        <img
-          src="./img/bdd_resto.png"
-          alt="Schéma BDD resto2 — tables resto, utilisateur, reservation, critiquer, aimer, horaire, photo, type_cuisine"
-          style="width:100%;max-width:680px;border-radius:8px;border:1px solid var(--jet);display:block;"
-          onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"
-        />
-        <div style="display:none;background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;">
-          resto → idR, nomR, adresse, GPS, description<br>
-          utilisateur → idU, mail, mdp, pseudo, role (Utilisateur/Admin/Modérateur)<br>
-          reservation → id, nom_prenom, mail, telephone, date_heure, nb_personnes<br>
-          critiquer → idR + idU (note, commentaire)<br>
-          aimer, horaire, photo, type_cuisine, resto_type_cuisine
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">8 tables liées — gestion des rôles (Utilisateur / Admin / Modérateur), réservations, avis, horaires</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🐛 C2 — Preuves : Gestion des tickets d\'amélioration GitLab
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ef9a9a;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Board GitLab — Tableau des tickets (Hozura / P1_G6_SiteResto2025)</p>
-        <img
-          src="./img/tab_ticket_resto.png"
-          alt="Board GitLab Site Resto — tickets par itération Ouvert / En cours / Closed"
-          style="width:100%;max-width:680px;border-radius:8px;border:1px solid var(--jet);display:block;margin-bottom:12px;"
-          onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"
-        />
-        <div style="display:none;"></div>
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Itération 3 — #16 : Afficher les catégories <span style="color:#ef9a9a;">(complexe)</span> → <span style="color:#56d364;">Closed ✓</span></li>
-          <li>Itération 3 — #15 : Création des requêtes préparées <span style="color:#ffb300;">(complexité normale)</span> → <span style="color:#56d364;">Closed ✓</span></li>
-          <li>Itération 3 — #14 : Ajout d\'une table de catégories <span style="color:#a5d6a7;">(peu complexe)</span> → <span style="color:#56d364;">Closed ✓</span></li>
-          <li>Itération 2 — #13 : Recherche multiple non fonctionnelle → <span style="color:#56d364;">Closed ✓</span></li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Tous les tickets fermés — 0 ouvert, 0 en cours en fin de sprint</p>
-      </div>
-    </div>
-  `,
-
-  // ─────────────────────────────────────────
-  // STAGE DAKILAB
-  // ─────────────────────────────────────────
-  "Stage chez Dakilab": `
-    <p>Stage Dev FullStack chez <strong>Dakilab</strong> (studio de création numérique, Nantes) du 05/01 au 12/02/2026. Projet : plateforme web <strong>"L'islam dans l'histoire"</strong>, commanditée par la Mosquée de Nantes. Stack : Angular · NestJS · MongoDB · AdminJS. Tuteur : Abdellatif El Maknati.</p>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🌐 C3 — Preuves : Présence numérique et valorisation de l'image
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #a5d6a7;margin-bottom:10px;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 10px;">📸 Interface "L'islam dans l'histoire" — plateforme pédagogique en ligne</p>
-        <img
-          src="./img/interface_dakilab.png"
-          alt="Interface L'islam dans l'histoire — navigation Accueil, Episodes, Quiz, Outils, A propos, Contact"
-          style="width:100%;max-width:680px;border-radius:8px;border:1px solid var(--jet);display:block;margin-bottom:12px;"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-        />
-        <div style="display:none;"></div>
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Plateforme web SPA (Single Page App) destinée au grand public, étudiants et chercheurs</li>
-          <li>Navigation : Accueil · Episodes · Quiz · Outils · A propos · Contact</li>
-          <li>Respect du cadre juridique : protection des données (RGPD), sécurisation Captcha</li>
-          <li>Valorisation de l'image de l'organisation via un design professionnel et un contenu éditorial structuré</li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.5-6 — Contexte du stage</p>
-      </div>
-
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #a5d6a7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 8px;">🔒 Sécurisation Captcha — protection des formulaires contre le spam</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;overflow-x:auto;">
-          <span style="color:#ff7b72;">private async</span> <span style="color:#d2a8ff;">verifyCaptcha</span>(token: string): Promise&lt;boolean&gt; {<br>
-          &nbsp;&nbsp;<span style="color:#8b949e;">// Validation côté backend via Google reCAPTCHA ou Cloudflare Turnstile</span><br>
-          &nbsp;&nbsp;const provider = process.env.CAPTCHA_PROVIDER || <span style="color:#a5d6ff;">'google'</span>;<br>
-          &nbsp;&nbsp;<span style="color:#8b949e;">// Token validé avant persistance en base — fail closed en cas d'erreur</span><br>
-          &nbsp;&nbsp;<span style="color:#ff7b72;">return</span> !!resp?.data?.success;<br>
-          }
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.9-10 — Protection contre le spam</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🔒 C1 — Preuves : Gestion du patrimoine informatique
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #4fc3f7;">
-        <p style="font-size:12px;color:var(--light-gray70);margin:0 0 8px;">Variables d'environnement — sécurisation des accès AdminJS</p>
-        <div style="background:#0d1117;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#79c0ff;line-height:1.7;overflow-x:auto;">
-          <span style="color:#8b949e;">// Identifiants extraits du code source → fichier .env non versionné</span><br>
-          const adminPassword = configService.get&lt;string&gt;(<span style="color:#a5d6ff;">'ADMIN_PASSWORD'</span>);<br>
-          const adminLogin = configService.get&lt;string&gt;(<span style="color:#a5d6ff;">'ADMIN_LOGIN'</span>);<br>
-          <span style="color:#8b949e;">// Mot de passe jamais "en clair" dans le dépôt Bitbucket ✓</span>
-        </div>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.8-9 — Gestion des variables d'environnement</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        🧪 C4 — Preuves : Travail en mode projet agile (Kanban / Trello)
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #ffb300;">
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li><strong>Morning Call</strong> quotidien — définition des objectifs, priorisation Trello, levée des blocages</li>
-          <li><strong>Evening Check</strong> quotidien — revue des avancées, validation des fonctionnalités</li>
-          <li>Suivi Kanban sur <strong>Trello</strong> : À faire → En cours → En revue → Terminé</li>
-          <li>Pull Requests sur <strong>Bitbucket</strong> — code review systématique par Abdellatif El Maknati</li>
-          <li>Une dizaine de PR validées et mergées sur la durée du stage</li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.7-8 — Organisation et méthodologie de travail</p>
-        <p style="font-size:11px;color:var(--light-gray70);margin:4px 0 0;">Trello non accessible actuellement — suivi documenté dans le rapport de stage</p>
-      </div>
-    </div>
-
-    <div style="margin:16px 0;">
-      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange-yellow-crayola);margin:0 0 10px;font-weight:600;">
-        📈 C6 — Preuves : Développement professionnel
-      </p>
-      <div style="background:var(--eerie-black2);border-radius:10px;padding:14px;border-left:3px solid #80cbc4;">
-        <ul style="color:var(--light-gray);font-size:13px;line-height:1.8;margin:0;padding-left:18px;">
-          <li>Autoformation Angular, NestJS, TypeScript, MongoDB, Leaflet en distanciel</li>
-          <li>Veille technologique : comparaison Google Maps / Mapbox / Leaflet → préconisation Leaflet (open source, léger)</li>
-          <li>Prototypage Leaflet isolé (HTML/JS) avant intégration Angular — méthode de validation technique</li>
-          <li>Identité professionnelle : intégration dans une agence web, travail en autonomie totale</li>
-        </ul>
-        <p style="font-size:11px;color:var(--light-gray70);margin:8px 0 0;">Source : Rapport de stage p.16-17 — Compétences acquises et bilan</p>
-      </div>
-    </div>
-  `,
-};
-
-function creerModalProjet() {
-  if (document.getElementById('projet-modal-overlay')) return;
-
-  const overlay = document.createElement('div');
-  overlay.id = 'projet-modal-overlay';
-  overlay.style.cssText = `
-    display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75);
-    z-index:9999; overflow-y:auto; padding:20px;
-    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-    animation: fadeInOverlay .2s ease;
-  `;
-
-  overlay.innerHTML = `
-    <style>
-      @keyframes fadeInOverlay { from{opacity:0} to{opacity:1} }
-      @keyframes slideUpModal  { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-      #projet-modal { animation: slideUpModal .25s ease; }
-      .comp-detail-card { transition: transform .2s, box-shadow .2s; }
-      .comp-detail-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    </style>
-    <div id="projet-modal" style="
-      background:var(--eerie-black1); border-radius:20px; max-width:780px;
-      margin:0 auto; overflow:hidden; border:1px solid var(--jet);
-      box-shadow:0 25px 60px rgba(0,0,0,0.5);
-    ">
-      <!-- HEADER -->
-      <div id="pm-header" style="
-        background:linear-gradient(135deg,var(--eerie-black2),var(--jet));
-        padding:28px 28px 20px; position:relative;
-        border-bottom:1px solid var(--jet);
-      ">
-        <button id="pm-close" style="
-          position:absolute; top:16px; right:16px;
-          background:var(--eerie-black1); border:1px solid var(--jet);
-          border-radius:50%; width:34px; height:34px;
-          color:var(--light-gray); font-size:18px; cursor:pointer;
-          display:flex; align-items:center; justify-content:center; line-height:1;
-          transition:all .2s;
-        " onmouseover="this.style.background='var(--orange-yellow-crayola)';this.style.color='var(--eerie-black1)'"
-           onmouseout="this.style.background='var(--eerie-black1)';this.style.color='var(--light-gray)'">
-          ×
-        </button>
-        <p id="pm-periode" style="font-size:12px;color:var(--vegas-gold);margin:0 0 8px;letter-spacing:.05em;"></p>
-        <h2 id="pm-titre" style="font-size:22px;color:var(--white2);margin:0 0 12px;font-family:var(--ff-poppins);font-weight:600;"></h2>
-        <div id="pm-techs" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
-      </div>
-
-      <!-- BODY -->
-      <div style="padding:24px 28px; display:flex; flex-direction:column; gap:24px;">
-
-        <!-- PRÉSENTATION -->
-        <section>
-          <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--orange-yellow-crayola);margin:0 0 12px;display:flex;align-items:center;gap:8px;">
-            <ion-icon name="document-text-outline"></ion-icon> Présentation
-          </h3>
-          <div id="pm-desc" style="color:var(--light-gray);font-size:14px;line-height:1.8;"></div>
-        </section>
-
-        <!-- COMPÉTENCES E4 -->
-        <section>
-          <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--orange-yellow-crayola);margin:0 0 14px;display:flex;align-items:center;gap:8px;">
-            <ion-icon name="school-outline"></ion-icon> Compétences E4 mobilisées
-          </h3>
-          <div id="pm-comps" style="display:flex;flex-direction:column;gap:10px;"></div>
-        </section>
-
-        <!-- PDF -->
-        <section id="pm-pdf-section">
-          <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--orange-yellow-crayola);margin:0 0 12px;display:flex;align-items:center;gap:8px;">
-            <ion-icon name="attach-outline"></ion-icon> Document de présentation
-          </h3>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a id="pm-pdf-link" href="#" target="_blank" rel="noopener noreferrer" style="
-              display:inline-flex;align-items:center;gap:8px;
-              background:var(--jet);color:var(--white2);
-              padding:10px 18px;border-radius:12px;font-size:14px;
-              text-decoration:none;border:1px solid var(--border-gradient-onyx);
-              transition:all .2s;font-family:var(--ff-poppins);
-            " onmouseover="this.style.background='var(--orange-yellow-crayola)';this.style.color='var(--eerie-black1)';this.style.borderColor='var(--orange-yellow-crayola)'"
-               onmouseout="this.style.background='var(--jet)';this.style.color='var(--white2)';this.style.borderColor='var(--border-gradient-onyx)'">
-              <ion-icon name="document-outline" style="font-size:18px;"></ion-icon>
-              Voir le PDF
-            </a>
-            <a id="pm-pdf-dl" href="#" download style="
-              display:inline-flex;align-items:center;gap:8px;
-              background:transparent;color:var(--light-gray);
-              padding:10px 18px;border-radius:12px;font-size:14px;
-              text-decoration:none;border:1px solid var(--jet);
-              transition:all .2s;font-family:var(--ff-poppins);
-            " onmouseover="this.style.borderColor='var(--light-gray)';this.style.color='var(--white2)'"
-               onmouseout="this.style.borderColor='var(--jet)';this.style.color='var(--light-gray)'">
-              <ion-icon name="download-outline" style="font-size:18px;"></ion-icon>
-              Télécharger
-            </a>
-          </div>
-          <p id="pm-pdf-note" style="font-size:12px;color:var(--light-gray70);margin:10px 0 0;display:none;">
-            ⚠️ Aucun PDF configuré pour ce projet. Ajoute le chemin dans <code>PROJET_PDF</code>.
-          </p>
-        </section>
-
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(overlay);
-
-  document.getElementById('pm-close').addEventListener('click', fermerModalProjet);
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) fermerModalProjet();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') fermerModalProjet();
-  });
-}
-
-function ouvrirModalProjet(titre) {
-  const data = PROJET_COMPETENCES[titre];
-  if (!data) return;
-
-  creerModalProjet();
-
-  // Header
-  document.getElementById('pm-titre').textContent = titre;
-  document.getElementById('pm-periode').textContent = '📅 ' + data.periode;
-
-  // Techs
-  const techsEl = document.getElementById('pm-techs');
-  techsEl.innerHTML = data.techs.map(t => `
-    <span style="background:rgba(255,179,0,0.15);color:var(--orange-yellow-crayola);
-      border:1px solid rgba(255,179,0,0.3);border-radius:20px;font-size:12px;
-      padding:3px 10px;font-family:var(--ff-poppins);">${t}</span>
-  `).join('');
-
-  // Description longue
-  document.getElementById('pm-desc').innerHTML =
-    PROJET_DETAILS[titre] || `<p>${data.desc}</p>`;
-
-  // Compétences E4
-  const compsEl = document.getElementById('pm-comps');
-  const compsActives = Object.entries(data.competences).filter(([, v]) => v);
-  compsEl.innerHTML = compsActives.length
-    ? compsActives.map(([key, val]) => `
-        <div class="comp-detail-card" style="
-          background:var(--eerie-black2);border-radius:12px;
-          border-left:3px solid ${COMP_COLORS[key]};
-          padding:12px 16px; display:flex; gap:12px; align-items:flex-start;
-        ">
-          <span style="
-            background:${COMP_COLORS[key]}22;color:${COMP_COLORS[key]};
-            border:1px solid ${COMP_COLORS[key]}55;border-radius:8px;
-            font-size:12px;font-weight:700;padding:4px 8px;
-            font-family:var(--ff-poppins);white-space:nowrap;flex-shrink:0;
-          ">${key}</span>
-          <div>
-            <p style="color:var(--white2);font-size:13px;font-weight:500;margin:0 0 3px;font-family:var(--ff-poppins);">
-              ${COMP_LABELS[key]}
-            </p>
-            <p style="color:var(--light-gray70);font-size:13px;margin:0;line-height:1.6;">${val}</p>
-          </div>
-        </div>
-      `).join('')
-    : `<p style="color:var(--light-gray70);font-size:14px;">Aucune compétence E4 renseignée.</p>`;
-
-  // PDF
-  const pdfPath = PROJET_PDF[titre];
-  const pdfNote = document.getElementById('pm-pdf-note');
-  const pdfLink = document.getElementById('pm-pdf-link');
-  const pdfDl   = document.getElementById('pm-pdf-dl');
-
-  if (pdfPath) {
-    pdfLink.href = pdfPath;
-    pdfDl.href   = pdfPath;
-    pdfNote.style.display = 'none';
-    pdfLink.style.opacity = '1'; pdfLink.style.pointerEvents = 'auto';
-    pdfDl.style.opacity   = '1'; pdfDl.style.pointerEvents   = 'auto';
-  } else {
-    pdfLink.href = '#'; pdfDl.href = '#';
-    pdfNote.style.display = 'block';
-    pdfLink.style.opacity = '0.4'; pdfLink.style.pointerEvents = 'none';
-    pdfDl.style.opacity   = '0.4'; pdfDl.style.pointerEvents   = 'none';
-  }
-
-  // Afficher
-  const overlay = document.getElementById('projet-modal-overlay');
-  overlay.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function fermerModalProjet() {
-  const overlay = document.getElementById('projet-modal-overlay');
-  if (overlay) overlay.style.display = 'none';
-  document.body.style.overflow = '';
-}
-
-window.ouvrirModalProjet = ouvrirModalProjet;
-
-// ======================
-// VEILLE TECHNO — FLUX RSS LIVE
-// ======================
-
-const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
-
-const RSS_FEEDS = [
-  { url: 'https://feeds.feedburner.com/TechCrunch/artificial-intelligence', nom: 'TechCrunch AI', couleur: '#00D4FF' },
-  { url: 'https://www.lemonde.fr/intelligence-artificielle/rss_full.xml', nom: 'Le Monde IA', couleur: '#ffb300' },
-  { url: 'https://hnrss.org/frontpage', nom: 'Hacker News', couleur: '#ff6600' },
-];
-
-let articlesMemorise = [];
-let feedActif = 'tous';
-
-async function fetchRSSFeed(feed) {
-  try {
-    const res = await fetch(RSS_PROXY + encodeURIComponent(feed.url));
-    const data = await res.json();
-    if (data.status !== 'ok') return [];
-    return (data.items || []).slice(0, 6).map(item => ({
-      titre: item.title || 'Sans titre',
-      lien: item.link || '#',
-      desc: item.description ? item.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().slice(0, 160) : '',
-      date: item.pubDate || '',
-      feedNom: feed.nom,
-      feedCouleur: feed.couleur,
-    }));
-  } catch(e) { return []; }
-}
-
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  if (isNaN(d)) return '';
-  const diff = (Date.now() - d) / 1000;
-  if (diff < 3600) return Math.round(diff / 60) + ' min';
-  if (diff < 86400) return Math.round(diff / 3600) + ' h';
-  if (diff < 86400 * 7) return Math.round(diff / 86400) + ' j';
-  return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
-}
-
-function renderVeille(articles) {
-  const container = document.getElementById('rss-veille-container');
-  if (!container) return;
-
-  if (!articles.length) {
-    container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--light-gray70);">
-      <ion-icon name="wifi-outline" style="font-size:48px;color:var(--orange-yellow-crayola);"></ion-icon>
-      <p style="margin-top:15px;">Aucun article. Cliquez sur Actualiser.</p></div>`;
-    return;
-  }
-
-  const filtres = ['tous', ...new Set(articles.map(a => a.feedNom))];
-  const affichage = feedActif === 'tous' ? articles : articles.filter(a => a.feedNom === feedActif);
-
-  let html = `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
-    ${filtres.map(f => `<button onclick="window._setFeedActif('${f}')" style="
-      background:${feedActif === f ? 'var(--orange-yellow-crayola)' : 'var(--jet)'};
-      color:${feedActif === f ? 'var(--eerie-black1)' : 'var(--light-gray)'};
-      border:none;border-radius:20px;padding:5px 14px;font-size:13px;
-      cursor:pointer;font-family:var(--ff-poppins);">${f === 'tous' ? '🌐 Tous' : f}</button>`).join('')}
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">`;
-
-  affichage.forEach(a => {
-    html += `<div style="background:var(--eerie-black2);border-radius:14px;border:1px solid var(--jet);
-      padding:18px;transition:all .3s;display:flex;flex-direction:column;justify-content:space-between;"
-      onmouseover="this.style.borderColor='var(--orange-yellow-crayola)';this.style.transform='translateY(-3px)'"
-      onmouseout="this.style.borderColor='var(--jet)';this.style.transform='translateY(0)'">
-      <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-          <span style="background:${a.feedCouleur}22;color:${a.feedCouleur};border:1px solid ${a.feedCouleur}44;
-            border-radius:20px;font-size:11px;padding:2px 10px;">${a.feedNom}</span>
-          <span style="color:var(--light-gray70);font-size:12px;">${formatDate(a.date)}</span>
-        </div>
-        <h4 style="color:var(--white2);font-size:14px;line-height:1.5;margin-bottom:10px;font-family:var(--ff-poppins);">${a.titre}</h4>
-        ${a.desc ? `<p style="color:var(--light-gray70);font-size:13px;line-height:1.6;margin-bottom:12px;">${a.desc}…</p>` : ''}
-      </div>
-      <a href="${a.lien}" target="_blank" rel="noopener noreferrer" style="
-        display:inline-flex;align-items:center;gap:6px;background:var(--jet);color:var(--white2);
-        padding:7px 14px;border-radius:20px;font-size:13px;text-decoration:none;align-self:flex-start;
-        transition:all .2s;font-family:var(--ff-poppins);"
-        onmouseover="this.style.background='var(--orange-yellow-crayola)';this.style.color='var(--eerie-black1)'"
-        onmouseout="this.style.background='var(--jet)';this.style.color='var(--white2)'">
-        Lire l'article <ion-icon name="arrow-forward-outline" style="font-size:12px;"></ion-icon>
-      </a>
-    </div>`;
-  });
-
-  html += `</div>
-    <div style="margin-top:20px;padding:12px 16px;background:var(--jet);border-radius:10px;
-      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-      <span style="color:var(--light-gray);font-size:13px;">
-        <ion-icon name="stats-chart-outline" style="color:var(--orange-yellow-crayola);vertical-align:middle;margin-right:6px;"></ion-icon>
-        <strong>${affichage.length}</strong> articles sur <strong>${articles.length}</strong>
-      </span>
-      <span style="color:var(--light-gray70);font-size:12px;display:flex;align-items:center;gap:5px;">
-        <ion-icon name="time-outline" style="font-size:13px;"></ion-icon>
-        Mis à jour : <strong style="color:var(--orange-yellow-crayola);margin-left:4px;">
-          ${new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}</strong>
-      </span>
-    </div>`;
-
-  container.innerHTML = html;
-}
-
-window._setFeedActif = function(nom) { feedActif = nom; renderVeille(articlesMemorise); };
-
-async function chargerVeilleTechno() {
-  const container = document.getElementById('rss-veille-container');
-  if (!container) return;
-  container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--light-gray70);">
-    <ion-icon name="sync-outline" style="font-size:40px;color:var(--orange-yellow-crayola);animation:spin 1s linear infinite;"></ion-icon>
-    <p style="margin-top:15px;font-size:14px;">Chargement des flux RSS…</p></div>
-    <style>@keyframes spin{to{transform:rotate(360deg);}}</style>`;
-
-  const results = await Promise.all(RSS_FEEDS.map(fetchRSSFeed));
-  articlesMemorise = results.flat().sort((a, b) => new Date(b.date) - new Date(a.date));
-  feedActif = 'tous';
-  renderVeille(articlesMemorise);
-}
-
-window.chargerVeilleTechno = chargerVeilleTechno;
-
-// ======================
-// INIT
-// ======================
-
-document.addEventListener('DOMContentLoaded', function() {
-  injecterBadgesCompetences();
-
-  document.querySelectorAll('[data-page]').forEach(p => {
-    compObserver.observe(p, { attributes: true, attributeFilter: ['class'] });
-  });
-
-  const refreshBtn = document.getElementById('refresh-veille-btn');
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', function() {
-      const icon = this.querySelector('ion-icon');
-      if (icon) { icon.style.animation = 'spin 0.8s linear infinite'; setTimeout(() => { icon.style.animation = ''; }, 1500); }
-      chargerVeilleTechno();
-    });
-  }
-
-  const archiveBtn = document.getElementById('archive-btn');
-  if (archiveBtn) {
-    archiveBtn.addEventListener('click', function() {
-      articlesMemorise.length ? renderVeille(articlesMemorise) : chargerVeilleTechno();
-    });
-  }
-
-  if (document.querySelector('[data-page="blog"].active')) {
-    setTimeout(chargerVeilleTechno, 200);
-  }
-});
-
-// Liens externes → nouvel onglet
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('a');
-  if (link && link.href && link.href !== '#' && !link.getAttribute('target') && link.href.startsWith('http')) {
-    e.preventDefault();
-    window.open(link.href, '_blank');
-  }
-});
+</html>
