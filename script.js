@@ -298,12 +298,12 @@ const compObserver = new MutationObserver(mutations => {
 
 // PDF par projet — chemins réels depuis l'arborescence du projet
 const PROJET_PDF = {
-  "Projet Python":        "./retours_experience/retex_projet_python (1).pdf",
-  "Projet thali java":    "./retours_experience/retex_projet_java_thali.pdf",
-  "Projet Intranet":      "./retours_experience/retex_projet_corpany.pdf",
-  "Stage chez Delia":     "./retours_experience/Ahaddou_Heymad_1SLAM_2025_Stage_1_Rapport.pdf",
-  "Site Web Restaurant":  "./retours_experience/Projet_PhpsiteResto.zip",
-  "Stage chez Dakilab":   "./retours_experience/_Ahaddou_Heymad_2SLAM_2026_Stage_2_Rapport (2).pdf",
+  "Projet Python":        "/retours_experience/retex_projet_python(1).pdf",
+  "Projet thali java":    "/retours_experience/retex_projet_java_thali.pdf",
+  "Projet Intranet":      "/retours_experience/retex_projet_corpany.pdf",
+  "Stage chez Delia":     "/retours_experience/Ahaddou_Heymad_1SLAM_2025_Stage_1_Rapport.pdf",
+  "Site Web Restaurant":  "/retours_experience/Projet_PhpsiteResto.zip",
+  "Stage chez Dakilab":   "/retours_experience/_Ahaddou_Heymad_2SLAM_2026_Stage_2_Rapport(2).pdf",
 };
 
 // Description longue par projet
